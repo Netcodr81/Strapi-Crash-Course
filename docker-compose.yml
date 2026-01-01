@@ -10,7 +10,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - pgdata:/var/lib/postgresql
       # Uncomment the next line if you have an init schema file
       # - ./postgres/schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
     healthcheck:
