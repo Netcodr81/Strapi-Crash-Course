@@ -59,3 +59,6 @@ Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/
 ---
 
 <sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+
+## How to backup data on Docker
+docker run --rm -e PGPASSWORD=postgres postgres:18 pg_dump -h host.docker.internal -U postgres -d blog > dump.sql
