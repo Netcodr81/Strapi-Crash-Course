@@ -65,7 +65,7 @@ $RECYCLE.BIN/
 # Logs and databases
 ############################
 
-.tmp
+#.tmp
 *.log
 *.sql
 *.sqlite
@@ -129,16 +129,3 @@ dist
 build
 .strapi-updater.json
 .strapi-cloud.json
-# Astro
-.astro/
-
-# Astro build output
-public/
-
-# Optional npm cache directory
-.npm
-
-# Optional lock files
-package-lock.json
-yarn.lock
-pnpm-lock.yaml

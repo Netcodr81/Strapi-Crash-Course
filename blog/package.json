@@ -15,22 +15,22 @@
     "upgrade:dry": "npx @strapi/upgrade latest --dry"
   },
   "dependencies": {
-    "@localazy/strapi-plugin": "^1.0.8",
     "@strapi/plugin-cloud": "5.33.1",
     "@strapi/plugin-users-permissions": "5.33.1",
     "@strapi/strapi": "5.33.1",
-    "pg": "8.8.0",
+    "better-sqlite3": "12.4.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
     "styled-components": "^6.0.0"
   },
+  "devDependencies": {},
   "engines": {
     "node": ">=20.0.0 <=24.x.x",
     "npm": ">=6.0.0"
   },
   "strapi": {
-    "uuid": "25855a73-ff69-4b02-a3f9-21efc8de80d8",
-    "installId": "558e7bd04577870171b659efbe22782895b0804e298eb4e7dfcc4db7d9eeac35"
+    "uuid": "18482e70-6dfd-410b-98ae-c357af28887f",
+    "installId": "7b28998d87fa5f2d41a2be1e9128edc090f6028011fdd10eda2aeffb198639c6"
   }
 }

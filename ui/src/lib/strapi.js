@@ -1,11 +1,4 @@
-export default async function fetchApi({
-  endpoint,
-  query,
-  wrappedByKey,
-  wrappedByList,
-  page,
-  locale,
-}) {
+export default async function fetchApi({ endpoint, query, wrappedByKey, wrappedByList, page, locale }) {
   if (endpoint.startsWith("/")) {
     endpoint = endpoint.slice(1);
   }
@@ -28,6 +21,11 @@ export default async function fetchApi({
   }
 
   const res = await fetch(url.toString());
+
+  if (!res.ok) {
+    throw new Error(`HTTP error! status: ${res.status}`);
+  }
+
   let data = await res.json();
 
   if (wrappedByKey) {
@@ -39,7 +37,8 @@ export default async function fetchApi({
   }
 
   if (page) {
-    data = data[0]["attributes"][page];
+    data = data[0][page];
   }
+
   return data;
 }

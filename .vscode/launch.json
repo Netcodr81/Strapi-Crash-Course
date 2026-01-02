@@ -1,0 +1,78 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "msedge",
+      "request": "launch",
+      "name": "Launch Edge - Astro Dev",
+      "url": "http://localhost:4321",
+      "webRoot": "${workspaceFolder}/ui",
+      "presentation": {
+        "group": "UI",
+        "order": 1
+      },
+      "serverReadyAction": {
+        "pattern": "Local:.*:([0-9]+)",
+        "uriFormat": "http://localhost:%s",
+        "action": "debugWithEdge"
+      }
+    },
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Launch Chrome - Astro Dev",
+      "url": "http://localhost:4321",
+      "webRoot": "${workspaceFolder}/ui",
+      "presentation": {
+        "group": "UI",
+        "order": 2
+      },
+      "serverReadyAction": {
+        "pattern": "Local:.*:([0-9]+)",
+        "uriFormat": "http://localhost:%s",
+        "action": "debugWithChrome"
+      }
+    },
+    {
+      "name": "Launch Astro Dev Server + Edge",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/ui",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "presentation": {
+        "group": "UI",
+        "order": 3
+      },
+      "serverReadyAction": {
+        "pattern": "Local:.*:([0-9]+)",
+        "uriFormat": "http://localhost:%s",
+        "action": "debugWithEdge"
+      }
+    },
+    {
+      "type": "msedge",
+      "request": "launch",
+      "name": "Launch Edge - Astro Preview",
+      "url": "http://localhost:4322",
+      "webRoot": "${workspaceFolder}/ui",
+      "presentation": {
+        "group": "UI Preview",
+        "order": 1
+      }
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Launch Astro with Edge Debug",
+      "configurations": ["Launch Astro Dev Server + Edge"],
+      "presentation": {
+        "group": "Compound",
+        "order": 1
+      }
+    }
+  ]
+}

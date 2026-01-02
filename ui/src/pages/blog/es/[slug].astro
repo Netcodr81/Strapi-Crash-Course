@@ -1,0 +1,53 @@
+---
+import MarkdownComponent from "../../../components/MarkdownComponent.astro";
+import Layout from "../../../layouts/Layout.astro";
+import fetchApi from "../../../lib/strapi";
+import { Image } from "astro:assets";
+export const prerender = false;
+
+let article;
+
+const { slug } = Astro.params;
+
+try {
+  article = await fetchApi({
+    endpoint: "blogs",
+    wrappedByKey: "data",
+    wrappedByList: true,
+    query: {
+      "filters[slug][$eq]": slug || "",
+    },
+    page: null,
+    locale: "es",
+  });
+} catch (error) {
+  Astro.redirect("/404");
+}
+
+function formatRelativeTime(dateString) {
+  const date = new Date(dateString);
+  const now = new Date();
+  const rtf = new Intl.RelativeTimeFormat("es", { numeric: "auto" });
+
+  const daysDifference = Math.round((now - date) / (1000 * 60 * 60 * 24));
+
+  if (daysDifference < 1) {
+    const hoursDifference = Math.round((now - date) / (1000 * 60 * 60));
+    if (hoursDifference < 1) {
+      const minutesDifference = Math.round((now - date) / (1000 * 60));
+      return rtf.format(-minutesDifference, "minute");
+    }
+    return rtf.format(-hoursDifference, "hour");
+  }
+
+  return rtf.format(-daysDifference, "day");
+}
+const relativeTime = formatRelativeTime(article.publishedAt);
+---
+
+<Layout>
+  <Image src={import.meta.env.STRAPI_URL + article.image[0].url} width='500' height='500' alt={article.title} />
+  <h1>{article.title}</h1>
+  <p>Article written {relativeTime}</p>
+  <MarkdownComponent content={article.content} />
+</Layout>
