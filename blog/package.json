@@ -11,6 +11,9 @@
     "develop": "strapi develop",
     "start": "strapi start",
     "strapi": "strapi",
+    "setup": "node setup-env.js",
+    "seed-database": "npm run strapi import -- -f blog-data.tar.gz",
+    "export-database-data": "npm run strapi export -- --no-encrypt --file blog-data",
     "upgrade": "npx @strapi/upgrade latest",
     "upgrade:dry": "npx @strapi/upgrade latest --dry"
   },

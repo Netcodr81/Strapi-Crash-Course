@@ -95,6 +95,11 @@ npm install
 From the `blog/` directory:
 
 ```bash
+# Run the setup
+npm run setup
+
+# Seed the database (if desired)
+
 # Development mode (with auto-reload)
 npm run dev
 
