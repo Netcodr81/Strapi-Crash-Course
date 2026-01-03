@@ -40,12 +40,14 @@ $RECYCLE.BIN/
 *.csv
 *.dat
 *.dmg
-*.gz
+#*.gz
 *.iso
 *.jar
 *.rar
-*.tar
+#*.tar
 *.zip
+# Exception: Keep Strapi export data
+!blog-data.tar.gz
 *.com
 *.class
 *.dll
@@ -65,7 +67,7 @@ $RECYCLE.BIN/
 # Logs and databases
 ############################
 
-#.tmp
+.tmp
 *.log
 *.sql
 *.sqlite
